@@ -30,7 +30,7 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(obj, done) {
-  done(null, obj);
+  done(null, user);
 });
 
 app.get('/auth/facebook', passport.authenticate('facebook'));
