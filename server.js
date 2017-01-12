@@ -23,7 +23,15 @@ passport.use('facebook', new FacebookStrategy({
 }, (accessToken, refreshToken, profile, done) => {
   // access the database
   done(null, profile);
-}))
+}));
+
+passport.serializeUser(function(user, done) {
+  done(null, user);
+});
+
+passport.deserializeUser(function(obj, done) {
+  done(null, obj);
+});
 
 app.get('/auth/facebook', passport.authenticate('facebook'));
 
